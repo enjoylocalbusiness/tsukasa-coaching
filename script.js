@@ -85,14 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
             nickname: document.getElementById('nickname').value
         };
 
-        // Googleスプレッドシートへ送信
+      // Googleスプレッドシートへ送信
         fetch('https://script.google.com/macros/s/AKfycbxa0a4bS25dOgYbXeGbnFBtUvGYu3x4VeouqKdp0s0o08NJFfKzAIPdmNvvPK8gQJXe/exec', {
             method: 'POST',
+            mode: 'no-cors', // これによりブラウザのブロックを回避します
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8',
+            },
             body: JSON.stringify(formData)
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('成功:', data);
+        .then(() => {
+            console.log('送信完了');
         })
         .catch((error) => {
             console.error('エラー:', error);
