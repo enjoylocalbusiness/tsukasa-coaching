@@ -85,8 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
             nickname: document.getElementById('nickname').value
         };
 
-        // TODO: ここに Google Apps Script (GAS) のURLを繋ぐことでスプレッドシートに蓄積できます
-        console.log('送信データ:', formData);
+        // Googleスプレッドシートへ送信
+        fetch('https://script.google.com/macros/s/AKfycbxa0a4bS25dOgYbXeGbnFBtUvGYu3x4VeouqKdp0s0o08NJFfKzAIPdmNvvPK8gQJXe/exec', {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('成功:', data);
+        })
+        .catch((error) => {
+            console.error('エラー:', error);
+        });
 
         // 送信完了の演出
         setTimeout(() => {
