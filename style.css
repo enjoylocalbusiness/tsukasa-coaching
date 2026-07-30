@@ -1,0 +1,269 @@
+:root {
+    --bg-color: #F8FBFE;
+    --card-bg: #FFFFFF;
+    --primary-color: #0077B6;
+    --primary-light: #E0F2FE;
+    --primary-hover: #0284C7;
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --border-color: #CBD5E1;
+    --accent-cloud: #F0F9FF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid #E2E8F0;
+    padding: 16px 0;
+}
+
+.logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 0 30px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #0F172A;
+}
+
+.hero-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.form-section {
+    padding: 20px 0 60px;
+}
+
+.coaching-card {
+    background-color: var(--card-bg);
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 119, 182, 0.05);
+}
+
+.form-group {
+    margin-bottom: 32px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: #0F172A;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.required {
+    color: #E11D48;
+    font-size: 0.9rem;
+}
+
+/* 雲・バブル風タグのスタイル */
+.cloud-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cloud-tag {
+    background-color: var(--accent-cloud);
+    border: 1px solid #BAE6FD;
+    color: var(--primary-color);
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 119, 182, 0.03);
+}
+
+.cloud-tag:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.cloud-tag.selected {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.duration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.duration-card {
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.duration-card:hover {
+    border-color: var(--primary-color);
+}
+
+.duration-card input {
+    display: none;
+}
+
+.duration-card input:checked + .duration-content {
+    color: var(--primary-color);
+}
+
+.duration-card:has(input:checked) {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.duration-content .time {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.duration-content .price-tag {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.normal-price {
+    /* 通常価格 */
+}
+
+.price-tag.strike {
+    text-decoration: line-through;
+    color: #94A3B8;
+}
+
+.free-price {
+    color: #0284C7;
+    font-weight: 700;
+}
+
+.text-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #FAFAFA;
+}
+
+.text-input:focus {
+    border-color: var(--primary-color);
+    background-color: #FFFFFF;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.success-message {
+    text-align: center;
+    padding: 20px;
+}
+
+.success-message h3 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .duration-grid {
+        grid-template-columns: 1fr;
+    }
+}

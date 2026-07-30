@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>つかさに相談する | 地域ビジネス・キャリア個別コーチング</title>
+    <meta name="description" content="SNS運用、スモールビジネス、キャリア、生き方まで。あなたのお悩みに多岐にわたって寄り添う個別相談窓口。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <span class="logo">Tsukasa Coaching</span>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- ヒーローセクション -->
+        <section class="hero">
+            <div class="container">
+                <span class="badge">個別相談窓口</span>
+                <h1 class="hero-title">多岐に渡って相談できます！</h1>
+                <p class="hero-desc">
+                    パーソナルからビジネスまで。枠にとらわれず、あなたの今抱えているお悩みやモヤモヤを何でもつかさに気軽にご相談ください。
+                </p>
+            </div>
+        </section>
+
+        <!-- 申込フォームセクション -->
+        <section class="form-section">
+            <div class="container">
+                <form id="coachingForm" class="coaching-card">
+                    
+                    <!-- 1. 相談キーワード選択（雲・バブル風） -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            相談したい内容（<span id="selectedCount">0</span> / 最大5つまで選択）
+                        </label>
+                        <p class="form-hint">気になるキーワードを最大5つまでクリックして選んでください。</p>
+                        
+                        <div class="cloud-container" id="cloudContainer">
+                            <button type="button" class="cloud-tag" data-value="SNS運用">SNS運用</button>
+                            <button type="button" class="cloud-tag" data-value="コミュニティ">コミュニティ</button>
+                            <button type="button" class="cloud-tag" data-value="スモールビジネス">スモールビジネス</button>
+                            <button type="button" class="cloud-tag" data-value="戦略設計">戦略設計</button>
+                            <button type="button" class="cloud-tag" data-value="営業">営業</button>
+                            <button type="button" class="cloud-tag" data-value="マーケティング">マーケティング</button>
+                            <button type="button" class="cloud-tag" data-value="ブランディング">ブランディング</button>
+                            <button type="button" class="cloud-tag" data-value="イベント企画">イベント企画</button>
+                            <button type="button" class="cloud-tag" data-value="クリエイティブ">クリエイティブ</button>
+                            <button type="button" class="cloud-tag" data-value="キャリア">キャリア</button>
+                            <button type="button" class="cloud-tag" data-value="考え方">考え方</button>
+                            <button type="button" class="cloud-tag" data-value="人間関係">人間関係</button>
+                            <button type="button" class="cloud-tag" data-value="コミュニケーション">コミュニケーション</button>
+                            <button type="button" class="cloud-tag" data-value="生き方">生き方</button>
+                            <button type="button" class="cloud-tag" data-value="お金">お金</button>
+                        </div>
+                        <input type="hidden" id="selectedTagsInput" name="selectedTags" required>
+                    </div>
+
+                    <!-- 2. 知り合い判定 -->
+                    <div class="form-group">
+                        <label class="form-label">つかさとお会いしたことはありますか？ <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="acquaintance" value="はい" required> はい（知り合いのため初回無料）
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="acquaintance" value="いいえ"> いいえ
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 3. セッション時間と料金 -->
+                    <div class="form-group">
+                        <label class="form-label">初回のセッション時間はどれにしますか？ <span class="required">*</span></label>
+                        <div class="duration-grid">
+                            <label class="duration-card">
+                                <input type="radio" name="duration" value="30分" required>
+                                <div class="duration-content">
+                                    <span class="time">30分</span>
+                                    <span class="price-tag">お試し</span>
+                                </div>
+                            </label>
+                            <label class="duration-card">
+                                <input type="radio" name="duration" value="60分">
+                                <div class="duration-content">
+                                    <span class="time">60分</span>
+                                    <span class="price-tag normal-price">5,000円</span>
+                                    <span class="price-tag free-price" style="display:none;">0円</span>
+                                </div>
+                            </label>
+                            <label class="duration-card">
+                                <input type="radio" name="duration" value="90分">
+                                <div class="duration-content">
+                                    <span class="time">90分</span>
+                                    <span class="price-tag normal-price">8,800円</span>
+                                    <span class="price-tag free-price" style="display:none;">0円</span>
+                                </div>
+                            </label>
+                        </div>
+                        <p class="price-note" id="priceNote"></p>
+                    </div>
+
+                    <!-- 4. Instagram ID -->
+                    <div class="form-group">
+                        <label class="form-label" for="instagramId">InstagramのID <span class="required">*</span></label>
+                        <p class="form-hint">ビデオ機能を使用してご連絡します。</p>
+                        <input type="text" id="instagramId" name="instagramId" class="text-input" placeholder="@から始まるIDをご入力ください" required>
+                    </div>
+
+                    <!-- 5. お呼びする名前 -->
+                    <div class="form-group">
+                        <label class="form-label" for="nickname">当日お呼びするお名前 <span class="required">*</span></label>
+                        <input type="text" id="nickname" name="nickname" class="text-input" placeholder="例：つかさ" required>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <button type="submit" class="submit-btn" id="submitBtn">送信する</button>
+
+                    <!-- 送信完了メッセージ -->
+                    <div id="successMessage" class="success-message" style="display: none;">
+                        <h3>お申し込みありがとうございます！</h3>
+                        <p>Instagramからご連絡しますのでお待ちください。</p>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 つかさコーチング</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
